@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de CAE</title>
-    <!-- Incluye Tailwind CSS CDN -->
+    <title>Calculadora de Ahorro Energético (CAE)</title>
+    <!-- Incluye Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Enlaza tu archivo de estilos personalizado -->
@@ -89,6 +89,11 @@
             <div class="flex justify-between items-center text-xl pt-2 border-t border-gray-200 font-semibold">
                 <span class="text-gray-800">El Propietario Percibe (neto):</span>
                 <span id="ownerNet" class="font-bold text-blue-700">0.00 €</span>
+            </div>
+            <!-- Nueva fila para el beneficio del SD -->
+            <div class="flex justify-between items-center text-xl pt-2 border-t border-gray-200 font-semibold">
+                <span class="text-gray-800">Beneficio del Sujeto Delegado:</span>
+                <span id="sdBenefitDisplay" class="font-bold text-purple-700">0.00 €</span>
             </div>
         </div>
 
