@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ownerGrossSpan = document.getElementById('ownerGross');
     const intermediaryNetSpan = document.getElementById('intermediaryNet');
     const ownerNetSpan = document.getElementById('ownerNet');
+    const sdBenefitDisplaySpan = document.getElementById('sdBenefitDisplay'); // Get the new SD benefit display element
     const messageBox = document.getElementById('messageBox');
 
     const displayMessage = (message, type = 'error') => {
@@ -95,12 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ownerGrossSpan.textContent = `0.00 €`;
             intermediaryNetSpan.textContent = `0.00 €`;
             ownerNetSpan.textContent = `0.00 €`;
+            sdBenefitDisplaySpan.textContent = `0.00 €`; // Also reset SD benefit
             return;
         }
 
         const ownerGross = valueAfterAllCosts * (sujetoDelegadoShare / 100);
         const intermediaryCut = ownerGross * (intermediaryCommission / 100);
         const ownerNet = ownerGross - intermediaryCut;
+        const sdBenefit = valueAfterAllCosts - ownerGross; // Calculate SD benefit
 
         // Mostrar resultados
         totalCAEValueSpan.textContent = `${totalCAEValue.toFixed(2)} €`;
@@ -110,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ownerGrossSpan.textContent = `${ownerGross.toFixed(2)} €`;
         intermediaryNetSpan.textContent = `${intermediaryCut.toFixed(2)} €`;
         ownerNetSpan.textContent = `${ownerNet.toFixed(2)} €`;
+        sdBenefitDisplaySpan.textContent = `${sdBenefit.toFixed(2)} €`; // Display SD benefit
     };
 
     calculateBtn.addEventListener('click', calculateCAE);
